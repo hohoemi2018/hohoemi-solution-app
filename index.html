@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff4eb">
+  <meta name="description" content="例外探しとコンプリメントを使った、あたたかな会話のロールプレイをつくるアプリ。">
+  <title>ほほえみシナリオノート | 会話の練習を、やさしく。</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner shell">
+      <a class="brand" href="#top" aria-label="ほほえみシナリオノート トップへ">
+        <span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M20 8c-3-5-8-2-7 2-5-2-7 3-3 6-5 2-3 7 1 7-1 5 4 7 7 3 2 5 7 3 7-1 5 1 7-4 3-7 5-2 3-7-1-7 1-5-4-7-7-3Z" fill="#f4ad99"/><circle cx="19" cy="18" r="6" fill="#fff3d7"/><circle cx="17" cy="17" r=".7" fill="#75584c"/><circle cx="21" cy="17" r=".7" fill="#75584c"/><path d="M17 20c1.3 1.2 2.7 1.2 4 0" fill="none" stroke="#75584c" stroke-linecap="round"/></svg></span>
+        <span class="brand-copy"><strong>ほほえみ<span>シナリオノート</span></strong><small>会話の練習を、やさしく。</small></span>
+      </a>
+      <nav class="header-nav" aria-label="メインナビゲーション">
+        <a class="nav-about" href="#about">このアプリについて</a>
+        <a class="nav-button" href="#make">シナリオをつくる <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> FOR BRAIN GYM 101 LEARNERS</p>
+        <h1 id="hero-title"><span class="hero-first-line">「できた」を見つける、</span><br><em>あたたかな会話</em>を。</h1>
+        <p class="hero-description">相手の中にある、小さな「うまくいった」を見つけよう。<br class="desktop-only">あなたの場面に合わせた、会話の練習をお手伝いします。</p>
+        <div class="hero-tags" aria-label="大切にしていること"><span>✿ &nbsp;小さな「できた」</span><span>♡ &nbsp;その人らしい一歩</span></div>
+        <a class="primary-button hero-button" href="#make">さっそく、つくってみる <span class="button-arrow" aria-hidden="true">↗</span></a>
+        <div class="hero-bottom"><span class="tiny-sparkle" aria-hidden="true">✳</span> 正解よりも、その人らしい一歩を。</div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-circle art-circle-one"></div>
+        <div class="art-circle art-circle-two"></div>
+        <img src="./assets/conversation.png" alt="" class="hero-illustration">
+        <div class="art-note"><span class="art-note-flower">✳</span><span>話すことから、<br>見つかることがある。</span></div>
+        <span class="art-dots">● &nbsp; ● &nbsp; ●</span>
+      </div>
+    </section>
+
+    <section class="journey" aria-label="ご利用の流れ">
+      <div class="shell journey-inner">
+        <div class="journey-label"><span>HOW TO USE</span><strong>つくり方は、<br>かんたん３ステップ。</strong></div>
+        <div class="journey-step"><span class="step-number">01</span><div><strong>場面を思い浮かべる</strong><small>いつ、誰と、どんなとき？</small></div></div>
+        <span class="journey-divider" aria-hidden="true">›</span>
+        <div class="journey-step"><span class="step-number">02</span><div><strong>会話例をつくる</strong><small>入力した内容から自動で作成</small></div></div>
+        <span class="journey-divider" aria-hidden="true">›</span>
+        <div class="journey-step"><span class="step-number">03</span><div><strong>声に出して練習</strong><small>自分らしい言葉に変えてみる</small></div></div>
+      </div>
+    </section>
+
+    <section id="make" class="workspace shell" aria-labelledby="make-title">
+      <div class="section-heading">
+        <div><p class="eyebrow"><span class="eyebrow-line"></span> LET'S PRACTICE</p><h2 id="make-title">どんな場面を練習しますか？</h2><p>思い浮かぶところから、気軽に入力してください。</p></div>
+        <div class="heading-decoration" aria-hidden="true">✳</div>
+      </div>
+
+      <div class="workspace-grid">
+        <form id="scenario-form" class="form-card" aria-describedby="form-intro">
+          <div class="card-heading">
+            <div class="card-heading-icon" aria-hidden="true">✎</div>
+            <div><p class="card-kicker">YOUR SITUATION</p><h3>場面をおしえてください</h3></div>
+            <button class="sample-button" id="sample-button" type="button">入力例を入れる <span aria-hidden="true">↗</span></button>
+          </div>
+          <p id="form-intro" class="form-intro">「必須」の２項目だけでも作れます。詳しく書くほど、場面を思い浮かべやすくなります。</p>
+
+          <div class="form-grid">
+            <div class="field"><label for="who"><span class="field-code">WHO</span> 誰と話しますか？ <span class="required">必須</span></label><input id="who" name="who" type="text" placeholder="例：小学生の子ども、受講生さん" maxlength="60" required><p class="field-hint">相手の立場や関係を書いてください。</p></div>
+            <div class="field"><label for="when"><span class="field-code">WHEN</span> いつの場面ですか？ <span class="optional">任意</span></label><input id="when" name="when" type="text" placeholder="例：朝、学校に行く前" maxlength="80"></div>
+            <div class="field"><label for="where"><span class="field-code">WHERE</span> どこで話しますか？ <span class="optional">任意</span></label><input id="where" name="where" type="text" placeholder="例：自宅のリビング" maxlength="80"></div>
+            <fieldset class="field audience-field"><legend><span class="field-code">TONE</span> 相手に合わせた言葉づかい</legend><div class="segmented"><label><input type="radio" name="audience" value="adult" checked><span>大人に向けて</span></label><label><input type="radio" name="audience" value="child"><span>子どもに向けて</span></label></div></fieldset>
+            <div class="field field-wide"><label for="situation"><span class="field-code">WHAT</span> どんなことについて話しますか？ <span class="required">必須</span></label><textarea id="situation" name="situation" rows="3" placeholder="例：朝の支度に時間がかかり、声をかける回数が増えている" maxlength="200" required></textarea><p class="field-hint">実際の場面でも、想像した場面でも大丈夫です。</p></div>
+            <div class="field field-wide"><label for="goal"><span class="field-code">GOAL</span> どうなったらうれしいですか？ <span class="optional">任意</span></label><input id="goal" name="goal" type="text" placeholder="例：親子で落ち着いて朝の準備ができる" maxlength="120"></div>
+            <div class="field field-wide"><label for="exception"><span class="field-code">EXCEPTION</span> 少しうまくいったときはありますか？ <span class="optional">任意</span></label><textarea id="exception" name="exception" rows="2" placeholder="例：前の日に一緒に準備した朝は、少し早く支度できた" maxlength="160"></textarea><p class="field-hint">思い浮かばなければ空欄で大丈夫。会話の中で探してみましょう。</p></div>
+            <div class="field field-wide"><label for="how"><span class="field-code">HOW</span> どんなふうに関わりたいですか？ <span class="optional">任意</span></label><input id="how" name="how" type="text" placeholder="例：急がせず、相手の気持ちを聞きたい" maxlength="120"></div>
+          </div>
+
+          <div class="form-actions"><button type="submit" class="primary-button submit-button"><span class="button-sparkle" aria-hidden="true">✳</span> シナリオをつくる <span class="button-arrow" aria-hidden="true">↗</span></button><p><span aria-hidden="true">♧</span> 入力内容はブラウザー内で処理されます</p></div>
+        </form>
+
+        <aside class="aside-column" id="about" aria-label="会話をつくるヒント">
+          <div class="aside-card principles-card"><p class="card-kicker">A LITTLE HINT</p><h3>会話をつくる、<br>３つのまなざし<span class="aside-flower" aria-hidden="true">✳</span></h3><p class="aside-intro">相手の答えを知っていると決めつけず、一歩うしろから寄り添いましょう。</p>
+            <div class="principle"><span class="principle-icon icon-peach">◌</span><div><strong>まずは、耳をかたむける</strong><p>相手が感じていることを、その人の言葉で聴いてみます。</p></div></div>
+            <div class="principle"><span class="principle-icon icon-yellow">✳</span><div><strong>小さな「例外」をさがす</strong><p>少しよかったとき、いつもと違ったことを尋ねます。</p></div></div>
+            <div class="principle"><span class="principle-icon icon-green">♡</span><div><strong>工夫や思いに目を向ける</strong><p>「どうやって？」と関心を示し、感謝を伝えます。</p></div></div>
+          </div>
+        <div class="aside-card note-card"><img class="note-illustration" src="./assets/birds.png" alt=""><div class="note-mark" aria-hidden="true">❝</div><p>うまくいったことを<br><strong>一緒に見つけて、<br>次の小さな一歩へ。</strong></p><span>解決志向のコミュニケーション</span></div>
+          <p class="source-note">このアプリは、ご提供いただいたブレインジム101講座の解決志向アプローチの資料を参考にしています。</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="result" class="result-section shell" hidden tabindex="-1" aria-labelledby="result-title" aria-live="polite">
+      <div class="result-heading"><div><p class="eyebrow"><span class="eyebrow-line"></span> YOUR SCENARIO</p><h2 id="result-title">会話のシナリオができました <span aria-hidden="true">✳</span></h2><p>自分らしい言葉に変えながら、声に出して練習してみましょう。</p></div><div class="result-actions"><button type="button" id="copy-button" class="outline-button">コピーする</button><button type="button" id="print-button" class="outline-button">印刷する</button></div></div>
+      <div class="result-body" id="result-body"></div>
+      <div class="result-bottom"><button type="button" id="regenerate-button" class="secondary-button">別の言い回しにする <span aria-hidden="true">↻</span></button><a href="#make" class="back-link">入力内容を変更する ↑</a></div>
+      <p class="result-disclaimer">相手の返答は練習用の一例です。実際には、相手の気持ちや言葉に合わせて会話を進めましょう。</p>
+      <p id="copy-status" class="copy-status" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="shell footer-inner"><div><strong>✳ &nbsp; ほほえみシナリオノート</strong><p>一人ひとりの「できた」に、やさしく目を向けて。</p></div><span>Made for thoughtful conversations.</span></div></footer>
+</body>
+</html>
